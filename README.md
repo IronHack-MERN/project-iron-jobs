@@ -112,7 +112,8 @@ Add statistics:
     salary: number,
     requirements: string,
     isOffered: string,
-    location: string
+    location: string,
+    user_id: string
 }
 ```
 
