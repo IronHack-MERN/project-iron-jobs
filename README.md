@@ -1,68 +1,143 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# IRON JOB BOARD
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Website of the job board for students and alumni of IronHack, where we can both look for offers and sign up for them and post offers.
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
 
-### `npm test`
+**Homepage** - As a user, I want to be able to access the home page to see the offers and if I am interested in logging in and registering
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Sign up** - As a user I want to register on the website to see the offers in which I can register
 
-### `npm run build`
+**Login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Job list** - As a user, I want to see all the job offers available to be able to choose which ones fit my knowledge.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Job create** - As a user, I want to create a job offer so that my colleagues can sign up
 
-### `npm run eject`
+**Job detail** - As a user, I want to see the details of job offers so I can decide if it fits with what I am looking for.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Job application** - As a user I want to be able to sign up for the offer that suits my preferences so they can count on me.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Backlog
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+List of other features outside of the MVPs scope
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+User profile: 
+- Upload my profile picture 
+- Upload my CV
+- Download my CV, from my profile data
+- See all offers near my location
 
-## Learn More
+Company entity:
+- Create a new company entity, who could only create an offer and manage a selection process for the position created
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Add statistics:
+- Total registered by offer
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Routes
+# User
+| Name                  | Method | Endpoint     | Description                                           | Body                          | Redirect  |
+| --------------------  | ------ | ------------ | ---------------------------------------------------   | ----------------------------- | --------  |
+| Landing               | GET    | /            | Show landing page with 2 options:login/register       |                               |           |
+| Login                 | POST   | /login       | Login to the app                                      | {email, password}             | /profile  |
+| Sign up               | POST   | /register    | Register user to the app                              | {email, password}             | /profile  |
+| User profile          | GET    | /user/:id    | Show user profile                                     |                               |           |
+| Log out               | GET    | /            | Log out to the app                                    |                               | /         |           
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Job
+| Name                  | Method | Endpoint     | Description                                           | Body                          | Redirect  |
+| --------------------  | ------ | ------------ | ---------------------------------------------------   | ----------------------------- | --------  |
+| Job                   | POST   | /job         | Create new job                                        |                               |           |
+| Show jobs             | GET    | /job         | Show all jobs                                         |                               |           |
+| Show job              | GET    | /offer/:id   | Show offer detail                                     |                               |           |
+| My jobs               | GET    | /offers/:id  | Show my published jobs                                |                               |           |
 
-### Analyzing the Bundle Size
+# Apply
+| Name                  | Method | Endpoint     | Description                                           | Body                          | Redirect  |
+| --------------------  | ------ | ------------ | ---------------------------------------------------   | ----------------------------- | --------  |
+| Apply                 | POST   | /apply       | User create new apply                                 |                               |           |
+| My applies            | GET    | /appy/:id    | Show all user applies                                 |                               |           |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Models
 
-### Advanced Configuration
+### User model
+```Javascript
+{
+    firstName: string, required
+    lastName: string, required
+    email: string, required
+    mobile: number,
+    studies: {
+        start: date,
+        end: date,
+        careerTitle: string,
+        college: string,
+        sector: string,
+        comments: string
+    },
+    workExperience: {
+        company: string, 
+        job: string,
+        sectot: string,
+        comments: string
+    },
+    languages:{
+        language: string,
+        spokenLevel: number,
+        writtenLevel: number,
+        certificate: string
+    }
+}
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Job model
+```Javascript
+{
+    job: string, required,
+    jobDescription: string,
+    companyName: string,
+    typePosition: string,
+    specialty: string,
+    salary: number,
+    requirements: string,
+    isOffered: string,
+    location: string
+}
+```
 
-### Deployment
+### Apply model
+```Javascript
+{
+    user_id: string, required,
+    job_id: string, required,
+    data: timestamp,
+    state: string,
+    hired: boolean
+}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Links
 
-### `npm run build` fails to minify
+### Git
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The url to your repository and to your deployed project
+
+[Repository Frontend Link](http://github.com/)
+
+[Repository Backend Link](http://github.com/)
+
+[Deploy Link](http://heroku.com/)
+
+### Slides
+
+[Slides Link](http://slides.com/)
