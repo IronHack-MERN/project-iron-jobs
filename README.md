@@ -2,7 +2,7 @@
 
 ## Description
 
-Website of the job board for students and alumni of IronHack, where we can both look for offers and sign up for them and post offers.
+Website of the job board for students and alumnis of IronHack, where we can both look for offers and sign up for them and post offers.
 
 ## User Stories
 
