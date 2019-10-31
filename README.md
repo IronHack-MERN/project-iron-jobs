@@ -6,21 +6,21 @@ Website of the job board for students and alumnis of IronHack, where we can both
 
 ## User Stories
 
-**404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
+**404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
 
-**500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
+**500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault.
 
-**Homepage** - As a user, I want to be able to access the home page to see the offers and if I am interested in logging in and registering
+**Homepage** - As a user, I want to be able to access the home page to see the offers and if I am interested in logging in and registering.
 
-**Sign up** - As a user I want to register on the website to see the offers in which I can register
+**Sign up** - As a user I want to register on the website to see the offers in which I can register.
 
-**Login** - As a user I want to be able to log in on the webpage so that I can get back to my account
+**Login** - As a user I want to be able to log in on the webpage so that I can get back to my account.
 
-**Logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
+**Logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account.
 
 **Job list** - As a user, I want to see all the job offers available to be able to choose which ones fit my knowledge.
 
-**Job create** - As a user, I want to create a job offer so that my colleagues can sign up
+**Job create** - As a user, I want to create a job offer so that my colleagues can sign up.
 
 **Job detail** - As a user, I want to see the details of job offers so I can decide if it fits with what I am looking for.
 
@@ -37,7 +37,7 @@ User profile:
 - See all offers near my location
 
 Company entity:
-- Create a new company entity, who could only create an offer and manage a selection process for the position created
+- Create a new company entity, who could only create an offer and manage a selection process for the position created.
 
 Add statistics:
 - Total registered by offer
